@@ -1,0 +1,17 @@
+
+<div class="offset-3" style="margin-top:40px;margin-bottom:40px">
+    <div class="card" align="center" style="width: 70%;background-color: rgb(77, 136, 224);border-radius: 0;color: white;">
+        <h4>Registered Users List</h4>
+    </div>
+    <div class="card" align="center" style="width: 70%;background-color: rgb(217, 224, 235);border-radius: 0;color: white;">
+        <button type="button" class="btn btn-outline-primary  pr-4 pl-4" (click)="createNewUser()"><strong>Create New User</strong></button>
+
+    </div>
+    <div class="card" style="width: 70%;" *ngFor="let user of userData">
+        <ul class="list-group list-group-flush" >
+            <li class="list-group-item"><span class="mr-2" ><img style="width:50px;border-radius:50px;border:3px solid rgb(42, 58, 204);display: inherit;" [src]="user.avatar"></span><strong><span>{{user.first_name}}</span>&nbsp; <span>{{user.last_name}}</span></strong>
+                <!-- <p class="ml-5 pl-2 mb-2" style="margin-top:-25px">{{user.email}}</p> -->
+            </li>
+        </ul>
+    </div>
+</div>
