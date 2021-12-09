@@ -34,7 +34,9 @@ export class NewuserComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-
+  /**
+   * @purpose upload the image
+   */
   fileSelect(e) {
     this.selectedImage = e.target.files[0];
     if (this.selectedImage) {
@@ -42,25 +44,26 @@ export class NewuserComponent implements OnInit {
     }
   }
 
-  submit(form, user) {
-    console.log(form, user);
-    
-    if (form.valid && this.selectedImage) {
-      console.log('lllog', user);
-      user['avatar'] = this.selectedImage.name;
-      this.http.post(`https://reqres.in/api/users`,user).subscribe(res => {
-        console.log('res', res);
+  /**
+  * @purpose submit the data using post api
+  */
 
+  submit(form, user) {
+    if (form.valid && this.selectedImage) {
+      user['avatar'] = this.selectedImage.name;
+      this.http.post(`https://reqres.in/api/users`, user).subscribe(res => {
+        console.log(res)
       })
     } else {
       this.ImageValid = "please upload image"
     }
   }
 
+  /**
+* @purpose cancel the creation and go back to home page
+*/
 
   cancel() {
     this.router.navigate(['home']);
   }
-
-
 }

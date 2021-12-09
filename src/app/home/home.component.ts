@@ -14,15 +14,22 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getUserList()
   }
+  /**
+   *   @purpose get the registered users list
+   */
+ 
+  
   getUserList() {
     let listData: any = []
     this.http.get('https://reqres.in/api/users').subscribe(res => {
-
       listData = Object(res)
       this.userData = listData.data
-      console.log(this.userData);
     })
   }
+
+  /**
+   * @purpose added the new user 
+   */ 
   createNewUser() {
     this.router.navigate(['new-user'])
   }
