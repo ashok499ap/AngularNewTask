@@ -51,10 +51,11 @@ export class NewuserComponent implements OnInit {
   submit(form, user) {
     if (form.valid && this.selectedImage) {
       user['avatar'] = this.selectedImage.name;
-      this.http.post(`https://reqres.in/api/users`, user).subscribe(res => {
+      this.http.post(`https://reqres.in/api/users`,user).subscribe(res => {
         console.log(res)
-        let data = Object(res)
-        alert(data.Json())
+        let data = Object(res);
+        alert('data saved');
+        this.router.navigate(['home']);
       })
     } else {
       this.ImageValid = "please upload image"
