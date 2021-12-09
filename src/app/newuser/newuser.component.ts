@@ -53,6 +53,8 @@ export class NewuserComponent implements OnInit {
       user['avatar'] = this.selectedImage.name;
       this.http.post(`https://reqres.in/api/users`, user).subscribe(res => {
         console.log(res)
+        let data = Object(res)
+        alert(data.Json())
       })
     } else {
       this.ImageValid = "please upload image"

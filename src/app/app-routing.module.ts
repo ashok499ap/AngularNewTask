@@ -4,7 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NewuserComponent } from './newuser/newuser.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "new-user", pathMatch: "full" },
+  { path: "", redirectTo: "home", pathMatch: "full" },
   {
     path: "home",
     component: HomeComponent,
